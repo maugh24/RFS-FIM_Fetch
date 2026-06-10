@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RFS-FIM Fetch Viewer</title>
+
+<!-- Leaflet + Leaflet.draw -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+
+<!-- COG reading + raster-on-leaflet -->
+<script src="https://unpkg.com/georaster@1.6.0/dist/georaster.browser.bundle.min.js"></script>
+<script src="https://unpkg.com/georaster-layer-for-leaflet@3.10.0/dist/georaster-layer-for-leaflet.min.js"></script>
+
+<!-- our styles -->
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h1>RFS-FIM Fetch Viewer</h1>
+<p class="sub">Draw an AOI, pick return periods, and load flood extents from the public <code>floodmap-sandbox</code> S3 bucket.</p>
+
+<div class="controls">
+  <div class="rp">
+    <strong style="font-size:14px;">Return periods:</strong>
+    <!-- checkboxes are generated from RETURN_PERIODS in app.js -->
+    <span id="rp-boxes"></span>
+  </div>
+  <button id="load-btn" disabled>Load flood extents</button>
+</div>
+
+<div class="map-label">1. Draw your AOI (rectangle or polygon)</div>
+<div id="draw-map" class="map"></div>
+
+<div class="map-label">2. Results</div>
+<div id="result-map" class="map"></div>
+
+<div id="log">Ready. Draw an AOI on the first map to begin.</div>
+
+<!-- our logic (loaded last so the DOM and the CDN libs above are ready) -->
+<script src="app.js"></script>
+</body>
+</html>
